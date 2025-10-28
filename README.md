@@ -1,28 +1,30 @@
-clickorm-ch
+# clickorm-ch
 
-clickorm_ch — Lightweight ClickHouse
+**Lightweight ClickHouse ORM & query toolkit** built on top of [`clickhouse-connect`].  
+Tolerant identifiers (safe quoting incl. Unicode), simple models, convenient DDL/insert/query helpers.
 
-clickorm_ch is a lightweight, SQLAlchemy-inspired ORM toolkit for ClickHouse, built on top of clickhouse-connect.
+[PyPI](https://pypi.org/project/clickorm-ch/) • [Source](https://github.com/gagikabovyan98/clickorm-ch)
 
-It provides simple model definitions, safe quoting for any identifiers (including Unicode/Armenian letters), and convenience methods for querying, inserting, and creating tables.
+---
+
+## 🚀 Installation
+
+```bash
+pip install clickorm-ch
 
 
-🚀 Installation
-    pip install clickhouse-connect
+⚙️ Connect
+    from clickorm_ch import ClickHouseORM
 
-
-⚙️ Connection
-    from clickorm_ch import ClickHouseORM as ClickHouse
-
-    db = ClickHouse(
+    db = ClickHouseORM(
         host="127.0.0.1",
-        port=8123,            # HTTP (default ClickHouse port)
+        port=8123,          # HTTP порт ClickHouse
         user="default",
         password="",
         database="default",
+        secure=False,       # True → HTTPS (обычно порт 443/8443)
+        timeout=30,
     )
-
-    Use secure=True to connect via HTTPS (port 443).
 
 🧱 Defining Models
     from clickorm_ch import Base, Column
