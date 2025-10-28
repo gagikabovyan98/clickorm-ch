@@ -17,3 +17,5 @@ __all__ = [
     "Date", "Date32", "DateTime", "DateTime64", "Nullable", "Array", "LowCardinality",
     "create_table", "create_table_from_model", "create_all", "drop_table",
 ]
+
+__version__ = "0.1.0"
