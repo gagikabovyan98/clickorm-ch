@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clickorm-ch"
+version = "0.1.0"
+description = "Lightweight ClickHouse ORM & query toolkit with tolerant identifiers and safe params"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Gagik Abovyan" }]
+keywords = ["clickhouse", "orm", "query builder", "sql", "etl"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Database",
+  "Typing :: Typed"
+]
+
+# Жесткие нижние границы без пинования патч-версий — нормально для либы
+dependencies = [
+  "clickhouse-connect>=0.7.19",
+  "aiohttp>=3.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.5.0",
+  "mypy>=1.8.0",
+  "pytest>=7.4.0",
+  "pytest-cov>=4.1.0",
+  "build>=1.2.1",
+  "twine>=5.1.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/gagikabovyan98/clickorm-ch"
+Issues   = "https://github.com/gagikabovyan98/clickorm-ch/issues"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["tests", "examples"]
+
+# [tool.setuptools.package-data]
+# "clickorm_ch" = ["py.typed"]
