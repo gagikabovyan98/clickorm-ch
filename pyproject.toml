@@ -21,7 +21,6 @@ classifiers = [
   "Typing :: Typed"
 ]
 
-# Жесткие нижние границы без пинования патч-версий — нормально для либы
 dependencies = [
   "clickhouse-connect>=0.7.19",
   "aiohttp>=3.9.0",
